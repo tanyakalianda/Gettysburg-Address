@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author Tanya Kalianda
+ * Gettysburg Address 
+ */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -15,41 +20,24 @@ public class GettysburgAddress
 		while (file.hasNext())
 		{
 			speech.add(file.next());
-			file.nextLine();
 		}
 		
-//		int i = 0;
-//		String longestWord = "";
-//		while (i < speech.size())
-//		{
-//			String word1 = speech.get(i);
-//			int compare = word1.compareTo(longestWord);
-//			if (compare > 0)
-//			{
-//				longestWord = word1;
-//			}
-//			i++;
-//		}
-//		System.out.println("Longest word: " + longestWord);
-		
 		String longestWord = speech.get(0);
-		for (int i = 1; i < speech.size(); i ++)
+		for (String element: speech)
 		{
-			int compare = speech.get(i).compareTo(longestWord);
-			if (compare > 0)
+			
+			if (element.length() > longestWord.length())
 			{
-				longestWord = speech.get(i);
+				longestWord = element;
 			}
 		}
 		System.out.println("Longest word: " + longestWord);
 		
-		
-		double total = 0;
-		for (String word: speech)
+		int total = 0;
+		for (String element: speech)
 		{
-			total = total + word.length();
+			total = total + element.length();
 		}
-		
 		
 		double average = total / speech.size();
 		
