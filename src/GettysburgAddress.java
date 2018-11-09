@@ -16,11 +16,16 @@ public class GettysburgAddress
 		Scanner file = new Scanner (new File("GettysburgAddress.txt"));
 		
 		ArrayList<String> speech = new ArrayList<String>();
+		String word = "";
 		
 		while (file.hasNext())
 		{
-			speech.add(file.next());
+			word = file.next();
+			speech.add(word);
 		}
+		
+		System.out.println("Number of indices: " + speech.size());
+		System.out.println("Gettysburg Address: " + speech);
 		
 		String longestWord = speech.get(0);
 		for (String element: speech)
@@ -33,14 +38,14 @@ public class GettysburgAddress
 		}
 		System.out.println("Longest word: " + longestWord);
 		
-		int total = 0;
+		double total = 0;
 		for (String element: speech)
 		{
 			total = total + element.length();
 		}
 		
 		double average = total / speech.size();
-		
+		//or int average = (double) total/speech.size(); -> cast as a double
 		System.out.println("Average word length: " + average);
 		
 	}
